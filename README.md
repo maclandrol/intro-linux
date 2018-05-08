@@ -174,7 +174,7 @@ Supprimer des fichiers avec **rm** : **r**e**m**ove
 rm -i fichier1 ... fichierN
 ```
 
-Il est aussi possible de supprimer un répertoire. Celui-ci doit être vide. (rmdir : remove directory )
+Il vous faudra confirmer la supression en appuyant sur le caractère indiqué puis sur la touche _entré_. Il est aussi possible de supprimer un répertoire. Celui-ci doit être vide. (rmdir : remove directory )
 ```bash
 rm -i repertoireVide
 ```
@@ -225,12 +225,25 @@ Il existe une autre commande pour afficher le contenu d'un fichier dans le termi
 cat nomDuFichier
 ```
 
+### Chercher un fichier
+Effectue une recherche dans le répertoire spécifié ainsi que ses sous-répertoires. Attention, la recherche est sensible à la casse! Utilisez -iname à la place de -name pour ne pas tenir compte de la casse (minuscule vs majuscule).
+```bash
+find endroitAChercher -name 'nomATrouver'
+```
+
+Pour trouver tous les documents pdf du répertoire courant ainsi que ses sous-répertoires. 
+```bash
+find . -name '*.pdf'
+```
+
+L'astérisque (\*) est un caractère spécial qui indique qu'il faut considérer n'importe quelle quantité de caractères précédent ".txt".
+
 -------------------------------------------
-Vous êtes maintenant prêts pour faire [le premier exercice](#exercice-1) ! Mais avant, lisez la section suivante et suivez les instructions pour installer deux petits utilitaires qui rendront votre expérience linux plus agréable. 
+Vous êtes maintenant prêts pour faire [les exercices 1](#exercice-1)  et [2](#exercice-2)! Mais avant, lisez la section suivante et suivez les instructions pour installer deux petits utilitaires qui rendront votre expérience linux plus agréable. 
 
 
 ## Utilitaires pratiques
-Nous allons nous équiper de deux outils très utiles pour les débutants. Il nous faudra les installer et pour ce faire, vous n'avez qu'à suivre les commandes. 
+Nous allons nous équiper de deux outils très utiles pour les débutants. Il nous faudra les installer et pour ce faire, vous n'avez qu'à suivre les commandes. En règle générale, lorsqu'il s'agit d'espace partagé de travail, demandez plutôt à votre administrateur système de vous installer les logiciels ou confirmer avec lui avant.
 
 ### tldr: un aide mémoire.
 
@@ -444,6 +457,31 @@ sed -i [...] nomDuFichier
 
 ## Pipe et redirection
 
+Il est possible de rediriger l'output d'une commande dans un fichier avec l'option `>`. Cette option écrase le contenu du fichier. À la place nous pouvons rajouter les nouvelles lignes à la fin du fichier avec `>>`
+
+```bash
+echo "ligne1" > fichier1
+# le fichier 1 contient "ligne1"
+echo "ligne2" > fichier1
+# le fichier 1 contient uniquement "ligne2" maintenant. 
+```
+Dans l'exemple précédent, si on avait utilisé `echo "ligne2" >> fichier1` alors fichier1 contiendrait les deux lignes. 
+
+À la place de sauvegarder l'output d'une commande dans un fichier, nous pouvons directement la passer comme input pour la commande suivante avec le pipe: `|`
+
+```bash
+echo "uneeee faute de frappe" | tr -s 'e'
+```
+
+Dans cet exemple, la commande `echo` affichera **uneeee faute de frappe** seule, mais grâce à `tr` nous pouvons remplacer toutes les lettres `e` contiguës par une seule. Ce qui affichera donc **une faute de frappe**.
+
+`>`, `>>`, `&&`,  `|` peuvent être utilisé ensemble pour enchaîner plusieurs petites commandes et produire des résultats étonnants. 
+
+```bash
+echo "unee ligne à corriger." | sed -e 's/unee/Une/g' > test1.txt &&  echo 'Une nouvelle ligne.' >> test1.txt
+```
+
+
 --------------------------------------
 
 
@@ -517,7 +555,7 @@ Dans ce cas, nous n'avons pas besoin de spécifier un fichier output. Vous remar
 </details>
 </li>
 
-<li>Décompressez l'archive. Sachant qu'il faudrait utiliser la commande <code>unzip</code>, trouver la ligne complète qu'il faut entrer.
+<li>Décompressez l'archive. Sachant qu'il faudrait utiliser la commande <code>unzip</code>, trouvez la ligne complète qu'il faut entrer. Vérifier ensuite le contenu de l'archive
     
 <details><summary><code><span style="color: #EEEE22">Solution 6</span></code></summary>
 
@@ -528,6 +566,50 @@ Pour avoir un exemple du fonctionnement de <code>unzip</code>
 Il suffit donc de faire :
 
 <pre><code>unzip data.zip
+ls
+# doit indiquer la présence d'un nouveau dossier 'data'
+ls data/
+# affiche le contenu de data
+</code></pre>
+
+Si vous êtes dans un dossier qui ne contient pas <code>data.zip</code>, utilser le chemin vers <code>data.zip</code> à la place.
+</details>
+</li>
+<li>Afin d'organiser notre répertoire, déplacez le nouvellement créé et qui contient les fichiers décompressés dans le répetoire parent <code>TPLinux</code>. Supprimez l'archive `.zip` puis retournez dans votre <code>$HOME</code>
+    
+<details><summary><code><span style="color: #EEEE22">Solution 7</span></code></summary>
+
+<pre><code>mv data ..
+rm -i data.zip
+cd
+</code></pre>
+</details>
+</li>
+
+<li>Parmi les fichiers téléchargés, il y a un fichier <code>pdf</code> mal nommé. Trouvez le, puis renommer le __notesLinux.pdf__ en le maintenant dans le même répertoire. Ouvrez ensuite le fichier <code>pdf</code>.
+    
+<details><summary><code><span style="color: #EEEE22">Solution 8</span></code></summary>
+
+<pre><code>find . -name '*.pdf'
+mv ./TPLinux/data/xxxlinxx.pdf ./TPLinux/data/notesLinux.pdf
+# ouvrir un fichier pdf 
+okular ./TPLinux/data/notesLinux.pdf 
+</code></pre>
+</details>
+</li>
+</ol>
+
+## Exercice 2
+<ol>
+<li>Parmi les fichiers téléchargés, se trouvent également des séquences avec une extension <code>fasta</code>. Combien de fichiers avec cette extension il y a t'il ?
+    
+<details><summary><code><span style="color: #EEEE22">Solution 1</span></code></summary>
+
+<pre><code>find ~/TPLinux -name '*.fasta' | wc -l
+# find retourne une ligne par fichier trouvé
+# et wc permet de compter le nombre de lignes
+# Alternativement
+ls -1 ~/TPLinux/data/*fasta| wc -l
 </code></pre>
 </details>
 </li>
