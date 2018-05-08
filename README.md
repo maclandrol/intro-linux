@@ -314,23 +314,26 @@ micro nom_fichier
 Pour ce exercice (et les suivants), vous devez travailler dans un répertoire réservé. 
 
 1. Commencez par créer un dossier appelé `TPLinux` et à l'intérieur un autre répertoire `test1` dans votre `$HOME`
-    <details><summary><strong><span style="color: blue">Solution 1</span></strong></summary>
-    ```bash
-    mkdir -p ~/TPLinux/test1
-    ```
-    </details>
+    <details><summary><code>Solution 1</code></summary>
+
+```bash
+mkdir -p ~/TPLinux/test1
+```
+    
+</details>
 
 
 2.  Aller dans le répertoire `test1` 
-    <details><summary><strong><span style="color: blue">Solution 2</span></strong></summary><p>
-    `test1` se trouve dans le répertoire `$HOME/TPLinux`. Pour y accéder il faut donc faire: 
+    <details><summary><code>Solution 2</code></summary>
 
-    ```bash
-    cd ~/TPLinux/test1
-    ```
+`test1` se trouve dans le répertoire `$HOME/TPLinux`. Pour y accéder il faut donc faire: 
 
-    Si vous vous trouvez déjà dans votre `$HOME`, vous pouvez utiliser `cd TPLinux/test1`. Essayer de taper juste une partie du chemin, puis appuyer sur la touche de tabulation pour voir l'autocomplètion qui vous sera proposée. 
-    </p></details>
+```bash
+cd ~/TPLinux/test1
+```
+
+Si vous vous trouvez déjà dans votre `$HOME`, vous pouvez utiliser `cd TPLinux/test1`. Essayer de taper juste une partie du chemin, puis appuyer sur la touche de tabulation pour voir l'autocomplètion qui vous sera proposée. 
+</details>
 
 3. Comment pouvez vous assurez que vous êtes dans le bon répertoire ? 
     <details><summary><strong><span style="color: blue">Solution 3</span></strong></summary>
