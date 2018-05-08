@@ -757,7 +757,7 @@ On veut donc toutes les lignes qui ne contiennent pas 'chr3'. Notez que cette co
 </li>
 </ol>
 
-### Exercice 3
+## Exercice 3
 
 Nous allons nous intéresser maintenant au deux fichier *BirA.fasta* et *MurB.fasta*  qui contiennent des séquences de gènes codants au format <code>fasta</code>. 
 
