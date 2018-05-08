@@ -312,18 +312,19 @@ micro nom_fichier
 ## Exercice 1
 
 Pour ce exercice (et les suivants), vous devez travailler dans un répertoire réservé. 
+<ol>
+<li>Commencez par créer un dossier appelé `TPLinux` et à l'intérieur un autre répertoire `test1` dans votre `$HOME`
 
-1. Commencez par créer un dossier appelé `TPLinux` et à l'intérieur un autre répertoire `test1` dans votre `$HOME`
-  <details><summary><code><span style="color: #EEEE22">Solution 1</span></code></summary>
+<details><summary><code><span style="color: #EEEE22">Solution 1</span></code></summary>
 
-  ```bash
-  mkdir -p ~/TPLinux/test1
-  ```
-  </details>
+```bash
+mkdir -p ~/TPLinux/test1
+```
+</details>
+</li>
 
-
-2.  Aller dans le répertoire `test1` 
-    <details><summary><code>Solution 2</code></summary>
+<li>Aller dans le répertoire `test1` 
+<details><summary><code><span style="color: #EEEE22">Solution 2</span></code></summary>
 
 `test1` se trouve dans le répertoire `$HOME/TPLinux`. Pour y accéder il faut donc faire: 
 
@@ -332,56 +333,77 @@ cd ~/TPLinux/test1
 ```
 
 Si vous vous trouvez déjà dans votre `$HOME`, vous pouvez utiliser `cd TPLinux/test1`. Essayer de taper juste une partie du chemin, puis appuyer sur la touche de tabulation pour voir l'autocomplètion qui vous sera proposée. 
+
 </details>
+</li>
 
-3. Comment pouvez vous assurez que vous êtes dans le bon répertoire ? 
-    <details><summary><strong><span style="color: blue">Solution 3</span></strong></summary>
-    <p>
-    ```bash
-    pwd
-    ```
-    </p>
-    </details>
+<li>Comment pouvez vous assurez que vous êtes dans le bon répertoire ? 
 
-4. Vérifier le contenu du dossier courant (`test1`), il devrait être vide.
-    <details><summary>Solution 4</summary>
-    ```bash
-    ls
-    ```
-    </details>
+<details><summary><code><span style="color: #EEEE22">Solution 3</span></code></summary>
 
-5. Télécharger l'archive qui contient les données pour l'exercice sur `https://raw.githubusercontent.com/maclandrol/intro-linux/master/data.zip`. Essayer d'utiliser les lignes de commande pour le faire. Si vous n'êtes pas sûr de la commande complète, mais connaissez le programme à utiliser, essayer son help/manuel ou plus simplement `tldr commande`. Vérifier ensuite le contenu de votre répertoire actuel. 
-    <details><summary>Solution 5</summary>
+```bash
+pwd
+```
+</details>
+</li>
+
+<li>Vérifier le contenu du dossier courant (`test1`), il devrait être vide.
+
+<details><summary><code><span style="color: #EEEE22">Solution 4</span></code></summary>
+
+```bash
+ls
+```
+</details>
+</li>
+
+<li>Télécharger l'archive qui contient les données pour l'exercice sur `https://raw.githubusercontent.com/maclandrol/intro-linux/master/data.zip`. Essayer d'utiliser les lignes de commande pour le faire. Si vous n'êtes pas sûr de la commande complète, mais connaissez le programme à utiliser, essayer son help/manuel ou plus simplement `tldr commande`. Vérifier ensuite le contenu de votre répertoire actuel. 
+
+<details><summary><code><span style="color: #EEEE22">Solution 5</span></code></summary>
+
 ```bash
 wget https://raw.githubusercontent.com/maclandrol/intro-linux/master/data.zip
 ls
 ```
+
 Dans ce cas, nous n'avons pas besoin de spécifier un fichier output. Vous remarquerez avec que `ls` retourne un nouveau fichier `data.zip`.
-    </details>
+</details>
+</li>
 
-6. Décompressez l'archive. Sachant qu'il faudrait utiliser la commande `unzip`, trouver la ligne complète qu'il faut entrer.
-    <details><summary>Solution 6</summary>
+<li>Décompressez l'archive. Sachant qu'il faudrait utiliser la commande `unzip`, trouver la ligne complète qu'il faut entrer.
+    
+<details><summary><code><span style="color: #EEEE22">Solution 6</span></code></summary>
+
 Pour avoir un exemple du fonctionnement de `unzip`
+
 ```bash
 tldr unzip
 ``` 
 Il suffit donc de faire :
+
 ```bash
 unzip data.zip
 ```
-    </details>
+</details>
+</li>
 
-7. Décompressez l'archive. Sachant qu'il faudrait utiliser la commande `unzip`, trouver la ligne complète qu'il faut entrer.
-    <details><summary>Solution 6</summary>
+<li>Décompressez l'archive. Sachant qu'il faudrait utiliser la commande `unzip`, trouver la ligne complète qu'il faut entrer.
+
+<details><summary><code><span style="color: #EEEE22">Solution 7</span></code></summary>
+
 Pour avoir un exemple du fonctionnement de `unzip`
+
 ```bash
 tldr unzip
 ``` 
 Il suffit donc de faire :
+
 ```bash
 unzip data.zip
 ```
-    </details>
+</details>
+</li>
+</ol>
 
 
 
