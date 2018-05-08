@@ -323,29 +323,29 @@ Pour ce exercice (et les suivants), vous devez travailler dans un répertoire r�
 
 2.  Aller dans le répertoire `test1` 
     <details><summary><strong><span style="color: blue">Solution 2</span></strong></summary><p>
-`test1` se trouve dans le répertoire `$HOME/TPLinux`. Pour y accéder il faut donc faire: 
+    `test1` se trouve dans le répertoire `$HOME/TPLinux`. Pour y accéder il faut donc faire: 
 
-```bash
-cd ~/TPLinux/test1
-```
+    ```bash
+    cd ~/TPLinux/test1
+    ```
 
-Si vous vous trouvez déjà dans votre `$HOME`, vous pouvez utiliser `cd TPLinux/test1`. Essayer de taper juste une partie du chemin, puis appuyer sur la touche de tabulation pour voir l'autocomplètion qui vous sera proposée. 
-</p></details>
+    Si vous vous trouvez déjà dans votre `$HOME`, vous pouvez utiliser `cd TPLinux/test1`. Essayer de taper juste une partie du chemin, puis appuyer sur la touche de tabulation pour voir l'autocomplètion qui vous sera proposée. 
+    </p></details>
 
 3. Comment pouvez vous assurez que vous êtes dans le bon répertoire ? 
     <details><summary><strong><span style="color: blue">Solution 3</span></strong></summary>
-<p>
-```bash
-pwd
-```
-</p>
+    <p>
+    ```bash
+    pwd
+    ```
+    </p>
     </details>
 
 4. Vérifier le contenu du dossier courant (`test1`), il devrait être vide.
     <details><summary>Solution 4</summary>
-```bash
-ls
-```
+    ```bash
+    ls
+    ```
     </details>
 
 5. Télécharger l'archive qui contient les données pour l'exercice sur `https://raw.githubusercontent.com/maclandrol/intro-linux/master/data.zip`. Essayer d'utiliser les lignes de commande pour le faire. Si vous n'êtes pas sûr de la commande complète, mais connaissez le programme à utiliser, essayer son help/manuel ou plus simplement `tldr commande`. Vérifier ensuite le contenu de votre répertoire actuel. 
