@@ -323,19 +323,23 @@ Pour ce exercice (et les suivants), vous devez travailler dans un répertoire r�
 
 2.  Aller dans le répertoire `test1` 
     <details><summary><strong><span style="color: blue">Solution 2</span></strong></summary>
-    `test1` se trouve dans le répertoire `$HOME/TPLinux`. Pour y accéder il faut donc faire: 
+
+`test1` se trouve dans le répertoire `$HOME/TPLinux`. Pour y accéder il faut donc faire: 
+
 ```bash
 cd ~/TPLinux/test1
 ```
-    Si vous vous trouvez déjà dans votre `$HOME`, vous pouvez utiliser `cd TPLinux/test1`. Essayer de taper juste une partie du chemin, puis appuyer sur la touche de tabulation pour voir l'autocomplètion qui vous sera proposée. 
+
+Si vous vous trouvez déjà dans votre `$HOME`, vous pouvez utiliser `cd TPLinux/test1`. Essayer de taper juste une partie du chemin, puis appuyer sur la touche de tabulation pour voir l'autocomplètion qui vous sera proposée. 
     </details>
 
 3. Comment pouvez vous assurez que vous êtes dans le bon répertoire ? 
-<details><summary><strong><span style="color: blue">Solution 3</span></strong></summary>
+    <details><summary><strong><span style="color: blue">Solution 1</span></strong></summary>
+
 ```bash
-    pwd
-    ```
-</details>
+pwd
+```
+    </details>
 
 4. Vérifier le contenu du dossier courant (`test1`), il devrait être vide.
     <details><summary>Solution 4</summary>
