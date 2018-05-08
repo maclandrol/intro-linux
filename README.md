@@ -314,13 +314,12 @@ micro nom_fichier
 Pour ce exercice (et les suivants), vous devez travailler dans un répertoire réservé. 
 
 1. Commencez par créer un dossier appelé `TPLinux` et à l'intérieur un autre répertoire `test1` dans votre `$HOME`
-    <details><summary><code>Solution 1</code></summary>
+    <details><summary><span style="color: #EEEE22"><code>Solution 1</code></span></summary>
 
 ```bash
 mkdir -p ~/TPLinux/test1
 ```
-    
-</details>
+    </details>
 
 
 2.  Aller dans le répertoire `test1` 
