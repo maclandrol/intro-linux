@@ -89,7 +89,7 @@ Dans le second cas, Kate ouvre le fichier _nomDuFichier_ ou crée un nouveau fic
 ## Commandes de bases
 ### Se retrouver
 
-Trouver sa position dans l'arborescence (pwd: **p**rint **w**orking **d**irectory). Cette commande affiche votre répertoire actuel. 
+Trouver sa position dans l'arborescence avec **pwd**: **p**rint **w**orking **d**irectory. Cette commande affiche votre répertoire actuel. 
 ```bash
 pwd
 ``` 
@@ -98,7 +98,7 @@ Lorsque vous ouvrez votre terminal, vous vous retrouver dans votre [`$HOME`](htt
 
 ### Lister
 
-Lister le contenu du répertoire courant.
+Lister le contenu du répertoire courant avec la commande **ls** : **l**i**s**t
 ```bash
 ls 
 ```
@@ -113,7 +113,7 @@ ls -lart
 
 ### Créer un répertoire
 
-Créer un répertoire (dossier) dans le répertoire courant (mkdir : make directory)
+Créer un répertoire (dossier) avec **mkdir** : **m**a**k**e **dir**ectory
 ```bash
 mkdir -p nomDuRépertoire
 ```
@@ -122,7 +122,7 @@ L'option `-p` est optionnelle et permet d'ignorer les erreurs, mais également d
 
 ### Changer de répertoire
 
-Se déplacer du répertoire courant à celui indiqué (cd : **c**hange **d**irectory).
+Se déplacer du répertoire courant à celui indiqué avec **cd** : **c**hange **d**irectory.
 ```bash
 cd repertoireCible
 ```
@@ -144,7 +144,7 @@ Vous aurez à utiliser `ls` et `cd` conjointement pour lister le contenu d'un r�
 
 ### Copier
 
-Copier des fichiers d'un endroit à un autre
+Copier des fichiers d'un endroit à un autre avec **cp** : **c**o**p**y
 ```bash
 cp fichier_a_copier endroit_ou_le_copier
 ```
@@ -157,9 +157,9 @@ cp fichier_a_copier .
 
 ### Déplacer
 
-Bouger un fichier ou répertoire d'un endroit à un autre. (mv : **m**o**v**e)
+Bouger un fichier ou répertoire d'un endroit à un autre avec *mv* : **m**o**v**e.
 ```bash
-mv fichiers_a_bouger endroit_ou_le_bouger
+mv fichiers_a_bouger endroit_ou_les_bouger
 ```
 
 Cette commande est également utile pour renommer ou écraser un fichier ou un répertoire.
@@ -169,9 +169,9 @@ Cette commande est également utile pour renommer ou écraser un fichier ou un r
 
 ### Supprimer
 
-Supprimer un fichier (rm : **r**e**m**ove)
+Supprimer des fichiers avec **rm** : **r**e**m**ove
 ```bash
-rm -i fichiersASupprimer
+rm -i fichier1 ... fichierN
 ```
 
 Il est aussi possible de supprimer un répertoire. Celui-ci doit être vide. (rmdir : remove directory )
@@ -291,8 +291,12 @@ micro nom_fichier
 -------------------------------------------
 
 ## Commandes avancées
+
+Vous pouvez utiliser `tldr` avec les commandes ci-après pour avoir leur résumés avec des exemples pratiques
+
 ### Recherche de caractères
-La commande UNIX grep (**g**lobal search for **r**egular **e**xpression and **p**rint) permet de chercher différents motifs dans un fichier. Grep imprime les lignes du fichiers contenant le motif.
+
+La commande UNIX **grep** (**g**lobal search for **r**egular **e**xpression and **p**rint) permet de chercher différents motifs dans un fichier. Grep imprime les lignes du fichiers contenant le motif.
 ```bash
 grep motif Fichier
 ```
@@ -307,17 +311,17 @@ Vous pouvez utiliser des <a href="https://web.archive.org/web/20171005075328/htt
 </thead>
 <tbody>
 <tr>
-  <td>`^`</td>
+  <td><code>^</code></td>
   <td>La correspondance commence la chaîne recherchée (juste avant le premier char du mot)</td>
 
 </tr>
 <tr>
-  <td>`$`</td>
+  <td><code>$</code></td>
   <td>La correspondance fini la chaîne recherchée (juste après le dernier char du mot)</td>
 
 </tr>
 <tr>
-  <td>`.`</td>
+  <td><code>.</code></td>
   <td>n'importe quel caractère unique</td>
 </tr>
    <tr>
@@ -325,30 +329,30 @@ Vous pouvez utiliser des <a href="https://web.archive.org/web/20171005075328/htt
   <td>répétition du caractère précédent, 0 ou plusieurs fois</td>
 </tr>
 <tr>
-  <td>`[ ]`</td>
+  <td><code>[ ]</code></td>
   <td>n'importe lequel des caractères cités entre les crochets</td>
   </tr>
 <tr>
-  <td>`[^ ]`</td>
+  <td><code>[^ ]</code></td>
   <td>n'importe quels caractères sauf ceux présents entre les crochets</td>
   </tr>
 <tr>
-  <td>`\`</td>
+  <td><code>\</code></td>
   <td>escape le caractère qui suit (pour ne pas qu'il soit considéré special: <span class="underline">ex</span> : `\*`)</td>
 </tr>
 
 <tr>
-  <td>`\t`</td>
+  <td><code>\t</code></td>
   <td>Correspond à une tabulation</td>
 </tr>
 
 <tr>
-  <td>`\n`</td>
+  <td><code>\n</code></td>
   <td>Correspond à un saut à la ligne</td>
 </tr>
 
 <tr>
-<td>`\s`</td>
+<td><code>\s</code></td>
   <td>Correspond à un espace blanc (\t, \n, " ")</td>
 </tr>
 </tbody>
@@ -378,7 +382,6 @@ cut [-d<separateur>] −f<colonnes> nomDuFichier
 ```
 où `<Colonnes>` désigne un intervalle ou une liste de colonne (par exemple: 1-3 ou 1,5,6).
 
-
 ### Compter le nombre de lignes d'un fichier
 Compter le nombre de ligne dans un fichier se fait avec wc: **w**ord **c**ount.
 ```bash
@@ -405,7 +408,7 @@ Pour Remplacer "a" par "d", "b" par "e" et "c" par "f"
 tr '[abc]' '[def]' < fichier 
 ```
 
-Remplacer n occurences contiguës du même caractère par une seule occurence. Par exemple pour remplace tous les suites de 'c' par un seul unique caractère 'c':
+Remplacer _n_ occurences contiguës du même caractère par une seule occurence. Par exemple pour remplace tous les suites de 'c' par un seul unique caractère 'c':
 ```bash
 tr -s 'c' < fichier
 ```
@@ -415,7 +418,7 @@ Supprimer toutes les occurences d'un caractère. Pour supprimer toutes les occur
 tr -d 'c' < fichier
 ```
 
-### Manipulation de texte avec Sed
+### Manipulation de texte avec sed
 
 Sed est une utilitaire Unix très puissant qui permet de manipuler du texte. Comme grep nous pouvons également utiliser des regexps comme motifs. Nous n'explorerons toutefois que 2 commandes sed.
 
@@ -426,7 +429,7 @@ sed -n "ligne_de_départ,ligne_de_finp;ligne_de_fin+1q" fichier
 
 Par exemple `sed -n "2,10p;11q" nomDuFichier` extrait et affiche les lignes 2 à 10 inclusivement.
 
-Pour substituer un motif par un autre:
+Si vous souhaitez substituer un motif par un autre:
 ```bash
 sed -e s/ancien_motif1/nouveau_motif1/g -e s/ancien_motif2/nouveau_motif2/g [...] nomDuFichier
 ```
@@ -439,7 +442,7 @@ sed -i [...] nomDuFichier
 
 ## Pipe et redirection
 
-# Trucs et astuces à savoir
+## Trucs et astuces à savoir
 
 - Sous linux, les majuscules et les minuscules sont considérées comme deux caractères différents.
 - Évitez les espaces dans les noms de fichiers/dossiers. À la place, utilisez l'underscore «**_**». Par exemple : `nom_de_fichier.txt` au lieu de `nom de fichier.txt`. L'espace fait parti des caractères spéciaux qu'on doit _échapper_ avec des backslash (`\`) où des guillemets (`""`). Par ailleurs, la plupart des commandes considèrent les arguments séparés par des espaces (sans échapement) comme des arguments différents. Par example, la commande `touch mon fichier `{:.language-bash} créera deux fichiers `mon` et `fichier`. Voilà une raison de plus pour éviter l'espace en général, quand on est débutant. 
