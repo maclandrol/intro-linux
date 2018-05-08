@@ -311,7 +311,7 @@ micro nom_fichier
 
 ## Exercice 1
 
-Pour ce exercice (et les suivants), vous devez travailler dans un répertoire réservé. 
+Pour cet exercice (et les suivants), vous devez travailler dans un répertoire réservé. 
 <ol>
 <li>Commencez par créer un dossier appelé <code>TPLinux</code> et à l'intérieur un autre répertoire <code>test1</code> dans votre <code>$HOME</code>
 
@@ -319,7 +319,7 @@ Pour ce exercice (et les suivants), vous devez travailler dans un répertoire r�
 
 <pre><code>
 mkdir -p ~/TPLinux/test1
-</pre></code>
+</code></pre>
 </details>
 </li>
 
@@ -330,7 +330,7 @@ mkdir -p ~/TPLinux/test1
 
 <pre><code>
 cd ~/TPLinux/test1
-</pre></code>
+</code></pre>
 
 Si vous vous trouvez déjà dans votre <code>$HOME</code>, vous pouvez utiliser <code>cd TPLinux/test1</code>. Essayer de taper juste une partie du chemin, puis appuyer sur la touche de tabulation pour voir l'autocomplètion qui vous sera proposée. 
 
@@ -343,7 +343,7 @@ Si vous vous trouvez déjà dans votre <code>$HOME</code>, vous pouvez utiliser 
 
 <pre><code>
 pwd
-</pre></code>
+</code></pre>
 </details>
 </li>
 
@@ -353,7 +353,7 @@ pwd
 
 <pre><code>
 ls
-</pre></code>
+</code></pre>
 </details>
 </li>
 
@@ -364,7 +364,7 @@ ls
 <pre><code>
 wget https://raw.githubusercontent.com/maclandrol/intro-linux/master/data.zip
 ls
-</pre></code>
+</code></pre>
 Dans ce cas, nous n'avons pas besoin de spécifier un fichier output. Vous remarquerez avec que <code>ls</code> retourne un nouveau fichier <code>data.zip</code>.
 </details>
 </li>
@@ -377,12 +377,12 @@ Pour avoir un exemple du fonctionnement de <code>unzip</code>
 
 <pre><code>
 tldr unzip
-</pre></code>
+</code></pre>
 Il suffit donc de faire :
 
 <pre><code>
 unzip data.zip
-</pre></code>
+</code></pre>
 </details>
 </li>
 </ol>
