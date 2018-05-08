@@ -331,11 +331,11 @@ cd ~/TPLinux/test1
     </details>
 
 3. Comment pouvez vous assurez que vous êtes dans le bon répertoire ? 
-    <details><summary><strong><span style="color: blue">Solution 3</span></strong></summary>
-    ```bash
+<details><summary><strong><span style="color: blue">Solution 3</span></strong></summary>
+```bash
     pwd
     ```
-    </details>
+</details>
 
 4. Vérifier le contenu du dossier courant (`test1`), il devrait être vide.
     <details><summary>Solution 4</summary>
