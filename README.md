@@ -4,11 +4,11 @@ Ceci est une introduction à quelques commandes de base de la console linux. Ce 
 
 ## Liens utiles
 
-Voici une liste de lien utiles pour un débutant
+Voici une liste de lien utiles pour débutants:
 
-- [Guide exhaustive sur linux]()
+- [Guide exhaustive sur linux](https://dl2.pushbulletusercontent.com/JeSzkGMMD2dMb9O7GnL3x2q7ouCszqTS/notesLinux.pdf)
 
-- [Aide memoire linux]()
+- [Aide memoire linux](http://www.epons.org/commandes-base-linux.php)
 
 
 ## Ouvrir un terminal
@@ -18,37 +18,41 @@ Pour ouvrir un terminal, vous pouvez utiliser le raccourci clavier **Ctrl+Alt+t*
 
 ## Commandes linux
 
-
 Les commandes linux permettent l'exécution de programmes à partir d'un terminal. La forme générale d'une commande est :
- 
 ```bash
 nom_du_programme [options] arguments
 ```
 
+En générale, chaque ligne représente une commande différente. Il est toutefois possible d'éxécuter plusieurs commandes sur la même ligne en les séparant par un `;`. De même, on peut imposer que la première commande s'exécute sans erreurs avant que la seconde ne soit lancée en utilisant deux éperluettes `&&` à la place. Cette version est très pratique lorsqu'on désire éxécuter une série de commandes dont chacune dépends du bon fonctionnement du précédent.
+```bash
+# Affiche test2
+cat 'xxtestxx'; echo 'test2'
+```
+
+La commande précédente essayera d'afficher le contenu d'un fichier appelé "_xxtestxx_" puis affichera le mot '_test2_'. Puisque le fichier "_xxtestxx_" n'existe pas, il y aura une erreur, mais '_test2_' sera quand même affiché.
+```bash
+# N'affiche pas test2
+cat 'xxtestxx' && echo 'test2'
+```
+
+Dans ce second cas, '_test2_' ne sera pas affiché car la commande précédente retourne une erreur.
+
+Notez que les lignes qui commencent par `#` sont des commentaires, et ne représentent donc aucune commande.
 
 ## Manuel d'une commande 
-
 Pour voir le manuel d'utilisation d'une commande, il faut utiliser la commande `man`. Dans l'exemple suivant, le manuel d'utilisation de la commande `cp` sera affiché. Beaucoup de programme n'ont pas de manuel d'utilisation. À la place, on utilise l'option soit `--help` soit `-h` fournie par la commande. Dans le pire des cas, faîtes une recherche internet. 
 
 ```bash
 man cp
-```
-
-```bash
 cp --help
 ```
 
 ## Navigateur web
 
 Pour accéder au fureteur firefox: 
-
 ```bash
 firefox &
-```
-
-ou encore
-
-```bash
+# ou encore
 firefox nomDuSite &
 ``` 
 
@@ -61,15 +65,11 @@ Si vous n'utilisez pas le signe `&` à la fin d'une commande qui ouvre un progra
 Notez que vous pouvez tout simplement utiliser l'interface graphique pour **firefox**
 
 ## PDF
-Pour ouvrir un fichier pdf à partir du terminal, utilisez `okular` ou `evince` 
 
+Pour ouvrir un fichier pdf à partir du terminal, utilisez `okular` ou `evince` 
 ```bash
 evince nomDuFichier.pdf &
-``` 
-
-ou 
-
-```bash
+# ou 
 okular nomDuFichier.pdf &
 ``` 
 
@@ -77,47 +77,36 @@ okular nomDuFichier.pdf &
 ## Éditeur de texte
 
 Afin de pouvoir ouvrir et composer des fichiers textes, vous pouvez utiliser un éditeur de texte comme `kate`. Vous avez en principe, le choix entre `kate`, `gedit`, `vim`, `emacs` et `nano` comme éditeurs par défaut sous linux. Vim et Emacs sont des outils très puissant et un peu trop avancés pour une introduction à linux. Nous essayerons donc l'éditeur graphique `kate`
-
-```sh
+```bash
 kate & 
-``` 
-ou encore 
-
-```sh
+# ou encore 
 kate nomDuFichier &
 ``` 
 
 Dans le second cas, Kate ouvre le fichier _nomDuFichier_ ou crée un nouveau fichier nommé _nomDuFichier_ si ce dernier n'existe pas encore.
 
 
-
 ## Commandes de bases
 ### Se retrouver
 
 Trouver sa position dans l'arborescence (pwd: **p**rint **w**orking **d**irectory). Cette commande affiche votre répertoire actuel. 
-```sh
+```bash
 pwd
 ``` 
-	
+    
 Lorsque vous ouvrez votre terminal, vous vous retrouver dans votre [`$HOME`](https://openclassrooms.com/courses/reprenez-le-controle-a-l-aide-de-linux/la-structure-des-dossiers-et-fichiers). Si vous changez de répertoire, `pwd` vous indiquera votre répertoire courant.
 
 ### Lister
 
 Lister le contenu du répertoire courant.
-
 ```bash
 ls 
 ```
 
 **`ls`** accepte des paramètres supplémentaires et il est possible de les combiner. Exemple pour lister avec détails (`list : -l`), les fichiers cachés (`all : -a`) et en ordre chronologique (`reverse time : -rt`)
-
 ```bash
 ls -l -a -rt
-```
-
-ou
-
-```bash
+# ou 
 ls -lart
 ```
 
@@ -125,7 +114,6 @@ ls -lart
 ### Créer un répertoire
 
 Créer un répertoire (dossier) dans le répertoire courant (mkdir : make directory)
-
 ```bash
 mkdir -p nomDuRépertoire
 ```
@@ -135,7 +123,6 @@ L'option `-p` est optionnelle et permet d'ignorer les erreurs, mais également d
 ### Changer de répertoire
 
 Se déplacer du répertoire courant à celui indiqué (cd : **c**hange **d**irectory).
-
 ```bash
 cd repertoireCible
 ```
@@ -156,14 +143,13 @@ Vous aurez à utiliser `ls` et `cd` conjointement pour lister le contenu d'un r�
 
 
 ### Copier
-Copier des fichiers d'un endroit à un autre
 
+Copier des fichiers d'un endroit à un autre
 ```bash
 cp fichier_a_copier endroit_ou_le_copier
 ```
 
 Copier des fichiers d'un autre endroit vers le répertoire courant. (Notez la présence du "." qui indique le répertoire courant).
-
 ```bash
 cp fichier_a_copier .
 ```
@@ -172,8 +158,6 @@ cp fichier_a_copier .
 ### Déplacer
 
 Bouger un fichier ou répertoire d'un endroit à un autre. (mv : **m**o**v**e)
-
-
 ```bash
 mv fichiers_a_bouger endroit_ou_le_bouger
 ```
@@ -184,20 +168,18 @@ Cette commande est également utile pour renommer ou écraser un fichier ou un r
 
 
 ### Supprimer
-Supprimer un fichier (rm : **r**e**m**ove)
 
+Supprimer un fichier (rm : **r**e**m**ove)
 ```bash
 rm -i fichiersASupprimer
 ```
 
 Il est aussi possible de supprimer un répertoire. Celui-ci doit être vide. (rmdir : remove directory )
-
 ```bash
 rm -i repertoireVide
 ```
 
 Si l'on veut supprimer un répertoire ainsi que tout son contenu. L'option `r` signifie récursivement.
-
 ```bash
 rm -ir repertoire
 ```
@@ -208,12 +190,8 @@ rm -ir repertoire
 ### Télécharger un fichier
 
 Télécharger le contenu d'un lien dans un fichier avec `curl` ou `wget`
-
 ```bash
 curl http://example.com -o example.txt
-```
-
-```bash
 wget -O example.txt https://example.com
 ```
 
@@ -223,25 +201,18 @@ Les options `-o` pour `curl` et `-O` pour `wget` permet respectivement de spéci
 ### Visualiser le contenu d'un fichier
 
 Les commandes `head/tail` permettent d'afficher les lignes de début et fin d'un fichier. Ainsi pour afficher les 20 premières lignes d'un fichier:
-
 ```bash
 head -n 20 nomDuFichier
 ```
 
 Voir les 30 dernières lignes d'un fichier
-
 ```bash
 tail -n 30 nomDuFichier
 ```
 
-Vous pouvez afficher le contenu d'un fichier dans le terminal avec `less/more`
-
+Vous pouvez afficher le contenu d'un fichier dans le terminal avec `less` ou `more`
 ```bash
 less nomDuFichier
-```
-ou
-
-```bash
 more nomDuFichier
 ```
 
@@ -250,7 +221,6 @@ Pour less et more, utilisez les flèches du clavier pour faire défiler le conte
 Si vous lancer less comme suit : `less -N nomDuFichier`, le numéro de chaque ligne sera affiché. Appuyez sur la touche "q" pour quitter la lecture.
 
 Il existe une autre commande pour afficher le contenu d'un fichier dans le terminal. Il s'agit de la commande `cat`. Contrairement à `less`, cat affiche tout le contenu du fichier d'un coup. Il s'agit donc d'un mauvais choix pour les connaître le contenu des fichiers lourds. Mais cette commande a bien d'autres utilités que nous verrons un peu plus tard.
-
 ```bash
 cat nomDuFichier
 ```
@@ -267,31 +237,26 @@ Nous allons nous équiper de deux outils très utiles pour les débutants. Il no
 Pour vous aider à vous rappeler des commandes linux à travers des exemples pratiques, nous allons installer `tldr`. L'installation de programme sous linux requiert souvent les permissions d'administrateurs (commande `sudo`). Toutefois, dans certains cas, il est possible d'installer des programmes de façon locale, c'est-à-dire pour l'utilisateur courant uniquement. 
 
 - Commençons par créer un répertoire local appelé `bin` dans notre `$HOME` pour sauvegarder le script à télécharger.
-
 ```bash
 mkdir -p ~/bin
 ```
 
 - Utilisons la commande `curl` pour télécharger le script et le sauvegarder dans le répertoire nouvellement créé.
-
 ```bash
 curl -o ~/bin/tldr https://raw.githubusercontent.com/raylee/tldr/master/tldr
 ```
 
 - Ajoutons maintenant les permissions pour rendre le script exécutable
-
 ```bash
 chmod +rx ~/bin/tldr
 ```
 
 - Et pour finir, nous devons ajouter le chemin vers le script dans notre [`$PATH`](https://www.commentcamarche.com/faq/3585-bash-la-variable-d-environnement-path#simili_main) pour pouvoir l'éxécuter de n'importe où !
-
 ```bash
 printf '\nexport PATH=~/bin:$PATH' >> .bashrc && source .bashrc
 ``` 
 
 - Essayez maintenant d'avoir un résumé de la commande `cp` avec :
-
 ```bash
 tldr cp
 ```
@@ -313,13 +278,11 @@ curl https://getmic.ro | bash
 ```
 
 - Un nouveau fichier appelé `micro` doit se trouver dans `~/bin`. Vous n'avez plus qu'à ajouter le chemin vers `~/bin` dans votre `$PATH` si ce n'est pas encore fait (Si vous avez suivi les instructions pour installer `tldr`, ignorer l'étape).
-
 ```bash
 printf '\nexport PATH=~/bin:$PATH' >> .bashrc && source .bashrc
 ``` 
 
 - Retourner dans votre `$HOME` et essayer d'ouvrir un nouveau fichier avec `micro` pour vérifier que tout fonctionne. La documentation de `micro` se trouve à [https://github.com/zyedidia/micro#documentation-and-help](https://github.com/zyedidia/micro#documentation-and-help).
-
 ```bash
 cd 
 micro nom_fichier
@@ -348,93 +311,70 @@ micro nom_fichier
 
 ## Exercice 1
 
-Pour ce TP (et les suivants), vous devez travailler dans un répertoire réservé. 
+Pour ce exercice (et les suivants), vous devez travailler dans un répertoire réservé. 
 
 1. Commencez par créer un dossier appelé `TPLinux` et à l'intérieur un autre répertoire `test1` dans votre `$HOME`
-
-<details><summary>Solution 1</summary>
-<p>
-
+    <details><summary>Solution 1</summary>
 ```bash
 mkdir -p ~/TPLinux/test1
 ```
-
-</p>
 </details>
 
 
 2.  Aller dans le répertoire `test1` 
-
-<details><summary>Solution 2</summary>
-<p>
+    <details><summary>Solution 2</summary>
 `test1` se trouve dans le répertoire `$HOME/TPLinux`. Pour y accéder il faut donc faire: 
-
 ```bash
 cd ~/TPLinux/test1
 ```
-
 Si vous vous trouvez déjà dans votre `$HOME`, vous pouvez utiliser `cd TPLinux/test1`. Essayer de taper juste une partie du chemin, puis appuyer sur la touche de tabulation pour voir l'autocomplètion qui vous sera proposée. 
-
-</p>
 </details>
 
 3. Comment pouvez vous assurez que vous êtes dans le bon répertoire ? 
-
-<details><summary>Solution 3</summary>
-<p>
-
+    <details><summary>Solution 3</summary>
 ```bash
 pwd
 ```
-
-</p>
 </details>
 
 4. Vérifier le contenu du dossier courant (`test1`), il devrait être vide.
-
-<details><summary>Solution 4</summary>
-<p>
-
+    <details><summary>Solution 4</summary>
 ```bash
 ls
 ```
-
-</p>
 </details>
 
-5. Télécharger l'archive qui contient les données pour l'exercice sur `https://raw.githubusercontent.com/maclandrol/intro-linux/master/data.zip`. Essayer d'utiliser les lignes de commande pour le faire. Si vous n'êtes pas sûr de la commande complète, mais connaissez le programme à utiliser, essayer son help/manuel ou plus simplement `tldr commande`.
-
-Vérifier ensuite le contenu de votre répertoire actuel. 
-
-<details><summary>Solution 5</summary>
-<p>
-
+5. Télécharger l'archive qui contient les données pour l'exercice sur `https://raw.githubusercontent.com/maclandrol/intro-linux/master/data.zip`. Essayer d'utiliser les lignes de commande pour le faire. Si vous n'êtes pas sûr de la commande complète, mais connaissez le programme à utiliser, essayer son help/manuel ou plus simplement `tldr commande`. Vérifier ensuite le contenu de votre répertoire actuel. 
+    <details><summary>Solution 5</summary>
 ```bash
 wget https://raw.githubusercontent.com/maclandrol/intro-linux/master/data.zip
 ls
 ```
-
 Dans ce cas, nous n'avons pas besoin de spécifier un fichier output. Vous remarquerez avec que `ls` retourne un nouveau fichier `data.zip`.
-</p>
 </details>
 
 6. Décompressez l'archive. Sachant qu'il faudrait utiliser la commande `unzip`, trouver la ligne complète qu'il faut entrer.
-
-<details><summary>Solution 6</summary>
-<p>
-
-Pour avoir un example du fonctionnement de `unzip`
+    <details><summary>Solution 6</summary>
+Pour avoir un exemple du fonctionnement de `unzip`
 ```bash
 tldr unzip
-```
-
+``` 
 Il suffit donc de faire :
-
 ```bash
 unzip data.zip
 ```
+</details>
 
-</p>
+7. Décompressez l'archive. Sachant qu'il faudrait utiliser la commande `unzip`, trouver la ligne complète qu'il faut entrer.
+    <details><summary>Solution 6</summary>
+Pour avoir un exemple du fonctionnement de `unzip`
+```bash
+tldr unzip
+``` 
+Il suffit donc de faire :
+```bash
+unzip data.zip
+```
 </details>
 
 
