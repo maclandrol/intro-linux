@@ -239,7 +239,7 @@ find . -name '*.pdf'
 L'astérisque (\*) est un caractère spécial qui indique qu'il faut considérer n'importe quelle quantité de caractères précédent ".txt".
 
 -------------------------------------------
-Vous êtes maintenant prêts pour faire [les exercices 1](#exercice-1)  et [2](#exercice-2)! Mais avant, lisez la section suivante et suivez les instructions pour installer deux petits utilitaires qui rendront votre expérience linux plus agréable. 
+Vous êtes maintenant prêts pour faire [l'exercice 1](#exercice-1) ! Mais avant, lisez la section suivante et suivez les instructions pour installer deux petits utilitaires qui rendront votre expérience linux plus agréable. 
 
 
 ## Utilitaires pratiques
@@ -481,6 +481,7 @@ Dans cet exemple, la commande `echo` affichera **uneeee faute de frappe** seule,
 echo "unee ligne à corriger." | sed -e 's/unee/Une/g' > test1.txt &&  echo 'Une nouvelle ligne.' >> test1.txt
 ```
 
+Vous pouvez maintenant faire les [exercices 2](#exercice-2) et [3](#exercice-2)
 
 --------------------------------------
 
@@ -579,11 +580,12 @@ Si vous vous trouvez déjà dans votre <code>$HOME</code>, vous pouvez utiliser 
 
 <li>Créer un nouveau fichier dans le dossier courant avec un éditeur. Inscrivez-y quelques mots. Sauvegarder puis quittez.
 <details><summary><code><span style="color: #EEEE22">Solution 5</span></code></summary>
-
-<pre><code># J'utilise micro dans ce cas, mais vous pouvez utiliser un éditeur graphique comme kate
+J'utilise micro dans ce cas, mais vous pouvez utiliser un éditeur graphique comme kate.
+<pre><code>
 micro mon_super_fichier.txt
-# micro utilise les raccourcis claviers standard. 'Ctrl+s'  pour sauvegarder. Et 'Ctrl+q' pour quitter.
 </code></pre>
+<code>micro</code> utilise les raccourcis claviers standard. 'Ctrl+s' pour sauvegarder. Et 'Ctrl+q' pour quitter.
+
 </details>
 </li>
 
@@ -650,9 +652,8 @@ okular ./TPLinux/data/notesLinux.pdf
     
 <details><summary><code><span style="color: #EEEE22">Solution 1</span></code></summary>
 
+La commande <code>find</code> retourne une ligne par fichier trouvé et <code>wc</code> permet de compter le nombre de lignes
 <pre><code>find ~/TPLinux -name '*.fasta' | wc -l
-# find retourne une ligne par fichier trouvé
-# et wc permet de compter le nombre de lignes
 # Alternativement
 ls -1 ~/TPLinux/data/*fasta| wc -l
 </code></pre>
@@ -662,10 +663,12 @@ ls -1 ~/TPLinux/data/*fasta| wc -l
     
 <details><summary><code><span style="color: #EEEE22">Solution 2</span></code></summary>
 
-<pre><code># afficher les 5 première ligne
+Pour afficher les 5 première lignes : 
+<pre><code>
 head -n 5 ~/TPLinux/data/unknown.fasta
-# Utiliser, less, more ou cat pour afficher tout le fichier
 </code></pre>
+
+Utiliser, less, more ou cat pour afficher tout le fichier.
 </details>
 </li>
 
@@ -685,8 +688,9 @@ cat ARNr*.fasta > all_ARNr.fasta
 
 <pre><code>mkdir -p ~/TPLinux/bioinfo && cd ~/TPLinux/bioinfo
 cp ../data/hgTables.tsv .
-# hgTables.txt se retrouve dans data qui est dans le répertoire parent du répertoire courant.
 </code></pre>
+
+*hgTables.txt* se retrouve dans data qui est dans le répertoire parent du répertoire courant.
 </details>
 </li>
 
@@ -703,12 +707,16 @@ cp ../data/hgTables.tsv .
 
 <details><summary><code><span style="color: #EEEE22">Solution 6</span></code></summary>
 
-<pre><code># La 7eme colonne "class" indique le type de variant
-# Nous avons juste à compter le nombre ligne avec "insertion" 
+<pre><code>
 grep 'insertion' hgTables.tsv | wc -l
-# Alternativement, l'option 'c' de grep permet de compter directement le nombre de ligne qui correspondent
-grep -c 'insertion' hgTables.tsv
 </code></pre>
+La 7eme colonne "class" indique le type de variant. Nous avons donc juste à compter le nombre de ligne avec "insertion".
+
+Alternativement, l'option 'c' de grep permet de compter directement le nombre de ligne qui correspondent.
+<pre><code>
+grep -c 'insertion' hgTables.tsv
+</code></pre> 
+
 </details>
 </li>
 
@@ -716,13 +724,15 @@ grep -c 'insertion' hgTables.tsv
 
 <details><summary><code><span style="color: #EEEE22">Solution 6</span></code></summary>
 
-<pre><code># La 1ere colonne "chrom" indique les chromosomes
-cut -f1 hgTables.tsv | sed -n '2,$p' | sort | uniq 
-# La première ligne du fichier est ignoré car il s'agit de l'entête
-# le '2,$p' dans sed permet de sélectionner et d'afficher de la ligne 2 à la fin.
-# Notez que vous pouvez utiliser tail et head intelligemment pour avoir le même resultat
-# enlever la dernière parie '| wc -l' pour avoir la liste unique
+<pre><code>cut -f1 hgTables.tsv | sed -n '2,$p' | sort | uniq 
 </code></pre>
+La 1ere colonne "chrom" indique les chromosomes.  On enlève la première ligne du fichier car il s'agit de l'entête
+
+Le <code>2,$p</code> dans sed permet de sélectionner et d'afficher de la ligne 2 à la fin.
+
+Notez que vous pouvez utiliser tail et head intelligemment pour avoir le même resultat. 
+
+Si vous enlever la dernière parie '| wc -l', la commande affichera la liste unique.
 </details>
 </li>
 
@@ -731,18 +741,15 @@ cut -f1 hgTables.tsv | sed -n '2,$p' | sort | uniq
 
 <details><summary><code><span style="color: #EEEE22">Solution 7</span></code></summary>
 
-<pre><code># On veut donc toutes les lignes qui ne contiennent pas 'chr3'
-grep -v 'chr3'  hgTables.tsv
-# Notez que cette commande conserve l'entête du fichier
+<pre><code>grep -v 'chr3'  hgTables.tsv
 </code></pre>
+On veut donc toutes les lignes qui ne contiennent pas 'chr3'. Notez que cette commande conserve l'entête du fichier.
 </details>
 </li>
-</ol>
-
 
 <li>Remplacer les brins marqués **+1** et **-1** respectivement par **+** et **-**, puis enregistrez le résultat. 
 
-<details><summary><code><span style="color: #EEEE22">Solution 6</span></code></summary>
+<details><summary><code><span style="color: #EEEE22">Solution 8</span></code></summary>
 
 <pre><code>sed -i -e s/+1/+/g -e s/-1/-/g  hgTables.tsv
 </code></pre>
@@ -750,4 +757,28 @@ grep -v 'chr3'  hgTables.tsv
 </li>
 </ol>
 
+### Exercice 3
 
+Nous allons nous intéresser maintenant au deux fichier *BirA.fasta* et *MurB.fasta*  qui contiennent des séquences de gènes codants au format <code>fasta</code>. 
+
+#### Format FASTA
+
+Le format <code>fasta</code> est un format de gestion de séquences biologiques (d'acides nucléiques que d'acides aminés) et est très utilisé en bioinformatique. Il s'agit d'un format standard et très simple  qui est accepté et utilisé par la plupart des outils bio-informatiques. 
+
+Chaque séquence possède un identifiant commençant par le symbole ">", suivit d'un nom permettant de l'identifier. La ligne de l'identifiant est ensuite suivie de la séquence correspondant à cet identifiant:
+
+<pre>>gi|511989|emb|A18572.1| Tubulin gene
+TTTGCATGCTGTCCAACACGACGCGATCGCTGAAGCTTGGGCTCGTTTGGATATAAGTTTGACCTTATGT
+ATGCCAAGCGTGCATTCGTCCACTGGTGAGTGTTCTTTCGACATCATCTTTTTCATTTGCAGTTGTTCTG
+CATATACAACATTTTATGAAAGTCAGATATACTGTTCAGGTATGTCGGAGAGGGAATGGAGGAAGGAGAG
+TTCAGTGAGGNACGTGAAGATCTCCCCGGGCTGCAGGAATTCGATATCAAGCTTATCGATACCGT
+</pre>
+
+<ol>
+<li>En vous aidant des commandes vues, trouvez la composition en nucléotides de la séquence du gène 'MurB'
+</li>
+<li>Vous remarquerez que la séquence du gène 'BirA' est en minuscule. Convertissez la en majuscule. Puis transcrire la séquence d'ADN en ARN.
+</li>
+<li>Combien de fois retrouve t'on le motif 'CAA' dans la séquence du gène MurB ?
+</li>
+</ol>
