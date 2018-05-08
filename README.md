@@ -290,8 +290,156 @@ micro nom_fichier
 
 -------------------------------------------
 
+## Commandes avancées
+### Recherche de caractères
+La commande UNIX grep (**g**lobal search for **r**egular **e**xpression and **p**rint) permet de chercher différents motifs dans un fichier. Grep imprime les lignes du fichiers contenant le motif.
+```bash
+grep motif Fichier
+```
 
-## Trucs et astuces à savoir
+Vous pouvez utiliser des <a href="https://web.archive.org/web/20171005075328/https://www.digitalocean.com/community/tutorials/using-grep-regular-expressions-to-search-for-text-patterns-in-linux">expressions régulières avec grep</a>. Notez qu'il existe plusieurs types de regexp et qu'il faut parfois le <b> specifier </b> avec les options `-E, -G, -P`. Voici quelques opérateurs regexp de base :</p>
+<table class="table table-hover">
+<thead>
+<tr>
+  <th>Méta-caractère</th>
+  <th>Correspondance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>`^`</td>
+  <td>La correspondance commence la chaîne recherchée (juste avant le premier char du mot)</td>
+
+</tr>
+<tr>
+  <td>`$`</td>
+  <td>La correspondance fini la chaîne recherchée (juste après le dernier char du mot)</td>
+
+</tr>
+<tr>
+  <td>`.`</td>
+  <td>n'importe quel caractère unique</td>
+</tr>
+   <tr>
+  <td>\*</td>
+  <td>répétition du caractère précédent, 0 ou plusieurs fois</td>
+</tr>
+<tr>
+  <td>`[ ]`</td>
+  <td>n'importe lequel des caractères cités entre les crochets</td>
+  </tr>
+<tr>
+  <td>`[^ ]`</td>
+  <td>n'importe quels caractères sauf ceux présents entre les crochets</td>
+  </tr>
+<tr>
+  <td>`\`</td>
+  <td>escape le caractère qui suit (pour ne pas qu'il soit considéré special: <span class="underline">ex</span> : `\*`)</td>
+</tr>
+
+<tr>
+  <td>`\t`</td>
+  <td>Correspond à une tabulation</td>
+</tr>
+
+<tr>
+  <td>`\n`</td>
+  <td>Correspond à un saut à la ligne</td>
+</tr>
+
+<tr>
+<td>`\s`</td>
+  <td>Correspond à un espace blanc (\t, \n, " ")</td>
+</tr>
+</tbody>
+</table>
+
+La commande suivante affichera toutes les lignes du fichier _fichier.txt_ finissant par une voyelle suivie d'un "." (point). Notez le `\` qui permet d'escaper le caractère `.`
+```bash
+grep "[aeiouy]\.$" fichier.txt
+```
+
+L'option `-i` permet d'ignorer la casse et l'option `-v` permet d'afficher les résultats qui ne _matchent_ pas.
+```bash
+grep -i -v motif fichier
+```
+
+L'option -o permet d'afficher indépendamment chaque _match_ sur une ligne.
+```bash
+grep -o motif fichier
+```
+
+
+### Récupérer des colonnes
+
+La commande **cut** permet de récupérer des colonnes d'un fichier. Elle est très utile lorsque le fichier est organisé en colonnes distinctes (pas exemple un fichier csv). On peut également spécifier un séparateur de champs avec l'option `-d`:
+```bash
+cut [-d<separateur>] −f<colonnes> nomDuFichier
+```
+où `<Colonnes>` désigne un intervalle ou une liste de colonne (par exemple: 1-3 ou 1,5,6).
+
+
+### Compter le nombre de lignes d'un fichier
+Compter le nombre de ligne dans un fichier se fait avec wc: **w**ord **c**ount.
+```bash
+wc -l nomDuFichier
+```
+
+wc permet également de compter le nombre de mot dans un fichier !
+```bash
+wc -w nomDuFichier
+```
+
+### Transformation
+
+Substituer des caractères dans un fichier ou un flux de données par d'autres avec **tr**.
+
+Pour remplacer les minuscules par les majuscules.
+```bash
+tr '[a-z]' '[A-Z]'' < fichier
+```
+Notez la syntaxe particulière en ce qui concerne le fichier en entrée. 
+
+Pour Remplacer "a" par "d", "b" par "e" et "c" par "f"
+```bash
+tr '[abc]' '[def]' < fichier 
+```
+
+Remplacer n occurences contiguës du même caractère par une seule occurence. Par exemple pour remplace tous les suites de 'c' par un seul unique caractère 'c':
+```bash
+tr -s 'c' < fichier
+```
+
+Supprimer toutes les occurences d'un caractère. Pour supprimer toutes les occurences de 'c':
+```bash
+tr -d 'c' < fichier
+```
+
+### Manipulation de texte avec Sed
+
+Sed est une utilitaire Unix très puissant qui permet de manipuler du texte. Comme grep nous pouvons également utiliser des regexps comme motifs. Nous n'explorerons toutefois que 2 commandes sed.
+
+Extraction de lignes précises d'un fichier
+```bash
+sed -n "ligne_de_départ,ligne_de_finp;ligne_de_fin+1q" fichier
+```
+
+Par exemple `sed -n "2,10p;11q" nomDuFichier` extrait et affiche les lignes 2 à 10 inclusivement.
+
+Pour substituer un motif par un autre:
+```bash
+sed -e s/ancien_motif1/nouveau_motif1/g -e s/ancien_motif2/nouveau_motif2/g [...] nomDuFichier
+```
+
+Vous pouvez modifier des fichiers sur place avec sed en utilisant l'option `-i` . 
+<strong> <span style="color: red">Noter que l'action est irréversible donc à éviter si vous n'êtes pas sûr !</span></strong>
+```bash
+sed -i [...] nomDuFichier
+```
+
+## Pipe et redirection
+
+# Trucs et astuces à savoir
 
 - Sous linux, les majuscules et les minuscules sont considérées comme deux caractères différents.
 - Évitez les espaces dans les noms de fichiers/dossiers. À la place, utilisez l'underscore «**_**». Par exemple : `nom_de_fichier.txt` au lieu de `nom de fichier.txt`. L'espace fait parti des caractères spéciaux qu'on doit _échapper_ avec des backslash (`\`) où des guillemets (`""`). Par ailleurs, la plupart des commandes considèrent les arguments séparés par des espaces (sans échapement) comme des arguments différents. Par example, la commande `touch mon fichier `{:.language-bash} créera deux fichiers `mon` et `fichier`. Voilà une raison de plus pour éviter l'espace en général, quand on est débutant. 
@@ -305,20 +453,17 @@ micro nom_fichier
 - Vous pouvez obtenir de l'aide pour la plupart des programmes avec les options `--help` et/ou `-h`. Par exemple : ```ls --help``` affichera les options communes de la commande `ls`
 
 
-
-
 # Exercices
 
 ## Exercice 1
 
 Pour cet exercice (et les suivants), vous devez travailler dans un répertoire réservé. 
-<ol>
+<ol class="exo">
 <li>Commencez par créer un dossier appelé <code>TPLinux</code> et à l'intérieur un autre répertoire <code>test1</code> dans votre <code>$HOME</code>
 
 <details><summary><code><span style="color: #EEEE22">Solution 1</span></code></summary>
 
-<pre><code>
-mkdir -p ~/TPLinux/test1
+<pre><code>mkdir -p ~/TPLinux/test1
 </code></pre>
 </details>
 </li>
@@ -328,12 +473,10 @@ mkdir -p ~/TPLinux/test1
 
 <code>test1</code> se trouve dans le répertoire <code>$HOME/TPLinux</code>. Pour y accéder il faut donc faire: 
 
-<pre><code>
-cd ~/TPLinux/test1
+<pre><code>cd ~/TPLinux/test1
 </code></pre>
 
 Si vous vous trouvez déjà dans votre <code>$HOME</code>, vous pouvez utiliser <code>cd TPLinux/test1</code>. Essayer de taper juste une partie du chemin, puis appuyer sur la touche de tabulation pour voir l'autocomplètion qui vous sera proposée. 
-
 </details>
 </li>
 
@@ -341,8 +484,7 @@ Si vous vous trouvez déjà dans votre <code>$HOME</code>, vous pouvez utiliser 
 
 <details><summary><code><span style="color: #EEEE22">Solution 3</span></code></summary>
 
-<pre><code>
-pwd
+<pre><code>pwd
 </code></pre>
 </details>
 </li>
@@ -351,8 +493,7 @@ pwd
 
 <details><summary><code><span style="color: #EEEE22">Solution 4</span></code></summary>
 
-<pre><code>
-ls
+<pre><code>ls
 </code></pre>
 </details>
 </li>
@@ -361,8 +502,7 @@ ls
 
 <details><summary><code><span style="color: #EEEE22">Solution 5</span></code></summary>
 
-<pre><code>
-wget https://raw.githubusercontent.com/maclandrol/intro-linux/master/data.zip
+<pre><code>wget https://raw.githubusercontent.com/maclandrol/intro-linux/master/data.zip
 ls
 </code></pre>
 Dans ce cas, nous n'avons pas besoin de spécifier un fichier output. Vous remarquerez avec que <code>ls</code> retourne un nouveau fichier <code>data.zip</code>.
@@ -375,13 +515,11 @@ Dans ce cas, nous n'avons pas besoin de spécifier un fichier output. Vous remar
 
 Pour avoir un exemple du fonctionnement de <code>unzip</code>
 
-<pre><code>
-tldr unzip
+<pre><code>tldr unzip
 </code></pre>
 Il suffit donc de faire :
 
-<pre><code>
-unzip data.zip
+<pre><code>unzip data.zip
 </code></pre>
 </details>
 </li>
