@@ -220,9 +220,9 @@ Pour less et more, utilisez les flèches du clavier pour faire défiler le conte
 
 Si vous lancer less comme suit : `less -N nomDuFichier`, le numéro de chaque ligne sera affiché. Appuyez sur la touche "q" pour quitter la lecture.
 
-Il existe une autre commande pour afficher le contenu d'un fichier dans le terminal. Il s'agit de la commande `cat`. Contrairement à `less`, cat affiche tout le contenu du fichier d'un coup. Il s'agit donc d'un mauvais choix pour les connaître le contenu des fichiers lourds. Mais cette commande a bien d'autres utilités que nous verrons un peu plus tard.
+Il existe une autre commande pour afficher le contenu d'un fichier dans le terminal. Il s'agit de la commande `cat`. Contrairement à `less`, cat affiche tout le contenu du fichier d'un coup. Il s'agit donc d'un mauvais choix pour les connaître le contenu des fichiers lourds. Mais cette commande a bien d'autres utilités. Elle peut prendre plusieurs fichiers en argument et les afficher les uns à la suite des autres, ce qui est utile pour **concaténer** plusieurs fichiers.
 ```bash
-cat nomDuFichier
+cat nomDuFichier1 nomDuFichier2
 ```
 
 ### Chercher un fichier
@@ -338,7 +338,7 @@ Vous pouvez utiliser des <a href="https://web.archive.org/web/20171005075328/htt
   <td>n'importe quel caractère unique</td>
 </tr>
    <tr>
-  <td>\*</td>
+  <td><code>*</code></td>
   <td>répétition du caractère précédent, 0 ou plusieurs fois</td>
 </tr>
 <tr>
@@ -475,7 +475,7 @@ echo "uneeee faute de frappe" | tr -s 'e'
 
 Dans cet exemple, la commande `echo` affichera **uneeee faute de frappe** seule, mais grâce à `tr` nous pouvons remplacer toutes les lettres `e` contiguës par une seule. Ce qui affichera donc **une faute de frappe**.
 
-`>`, `>>`, `&&`,  `|` peuvent être utilisé ensemble pour enchaîner plusieurs petites commandes et produire des résultats étonnants. 
+`>`, `>>`, `&&`,  `|` peuvent être utilisés ensemble pour enchaîner plusieurs petites commandes et produire des résultats complexes. 
 
 ```bash
 echo "unee ligne à corriger." | sed -e 's/unee/Une/g' > test1.txt &&  echo 'Une nouvelle ligne.' >> test1.txt
@@ -484,6 +484,39 @@ echo "unee ligne à corriger." | sed -e 's/unee/Une/g' > test1.txt &&  echo 'Une
 
 --------------------------------------
 
+## Se connecter à distance à un serveur
+Il est possible d'utiliser les serveurs de votre lab à partir de vos ordinateurs personnels en utilisant un logiciel tel que PuTTY ou encore Windows SSH Secure Shell. Afin d'avoir plus d'informations sur ces derniers, vous pouvez consulter les différents tutoriaux qui se retrouvent sur internet.
+
+Demander l'adresse du serveur à un membre du lab
+
+### Connexion à partir de linux
+
+Pour les utilisateurs de linux, la commande ssh permet de se connecter à partir d'un terminal. Il suffit de remplacer `username` de la commande suivante par votre code usager :
+```bash
+ssh username@xxx.umontreal.ca
+```
+où `xxx.umontreal.ca` est l'exemple d'un nom de serveur. Vous serez invité à taper votre mot de passe. L'option X permet d'utiliser les applications graphiques comme kate (sachez toutefois que ça peu être lent).
+
+```bash
+ssh -X username@xxx.umontreal.ca
+```
+
+### Connexion à partir de Windows
+
+Pour ceux qui sont sous windows, vous devez passer par un programme comme putty. La [page suivante](http://www-etud.iro.umontreal.ca/~semunix/documentIRO/html/node45.html) vous explique comment vous connecter pour travailler à distance.
+
+### Mac
+
+Enfin pour ceux qui ont un macbook, vous n'aurez qu'à suivre la même démarche que les utilisateurs linux.
+
+Si vous désirez travailler avec l'interface graphique, il vous faut d'abord activer le X-Forwarding dans certains cas:
+
+- Téléchargez et installez [X11](http://support.apple.com/kb/DL1605) (gratuit).
+- Exécutez /Applications/Utilities/X11.app pour démarrer X11
+- Un fenêtre xterm s'ouvrira, tapez alors `ssh -X username@xxx.umontreal.ca`
+- Si vous avez des problèmes avec l'option X, utilisez l'option Y à la place : `ssh -X username@xxx.umontreal.ca`
+
+Si vous rencontrez encore des problèmes, référez vous [à cet article](http://mactip.blogspot.ca/2007/12/x11-on-leopard.html) pour modifier votre fichier de configuration ssh en changeant la valeur de `ForwardX11 no` à `ForwardX11 yes`
 
 ## Trucs et astuces à savoir
 
@@ -544,9 +577,21 @@ Si vous vous trouvez déjà dans votre <code>$HOME</code>, vous pouvez utiliser 
 </details>
 </li>
 
+<li>Créer un nouveau fichier dans le dossier courant avec un éditeur. Inscrivez-y quelques mots. Sauvegarder puis quittez.
+<details><summary><code><span style="color: #EEEE22">Solution 5</span></code></summary>
+
+<pre><code># J'utilise micro dans ce cas, mais vous pouvez utiliser un éditeur graphique comme kate
+micro mon_super_fichier.txt
+# micro utilise les raccourcis claviers standard. 'Ctrl+s'  pour sauvegarder. Et 'Ctrl+q' pour quitter.
+</code></pre>
+</details>
+</li>
+
+
+
 <li>Télécharger l'archive qui contient les données pour l'exercice sur <code>https://raw.githubusercontent.com/maclandrol/intro-linux/master/data.zip</code>. Essayer d'utiliser les lignes de commande pour le faire. Si vous n'êtes pas sûr de la commande complète, mais connaissez le programme à utiliser, essayer son help/manuel ou plus simplement <code>tldr commande</code>. Vérifier ensuite le contenu de votre répertoire actuel. 
 
-<details><summary><code><span style="color: #EEEE22">Solution 5</span></code></summary>
+<details><summary><code><span style="color: #EEEE22">Solution 6</span></code></summary>
 
 <pre><code>wget https://raw.githubusercontent.com/maclandrol/intro-linux/master/data.zip
 ls
@@ -557,7 +602,7 @@ Dans ce cas, nous n'avons pas besoin de spécifier un fichier output. Vous remar
 
 <li>Décompressez l'archive. Sachant qu'il faudrait utiliser la commande <code>unzip</code>, trouvez la ligne complète qu'il faut entrer. Vérifier ensuite le contenu de l'archive
     
-<details><summary><code><span style="color: #EEEE22">Solution 6</span></code></summary>
+<details><summary><code><span style="color: #EEEE22">Solution 7</span></code></summary>
 
 Pour avoir un exemple du fonctionnement de <code>unzip</code>
 
@@ -577,7 +622,7 @@ Si vous êtes dans un dossier qui ne contient pas <code>data.zip</code>, utilser
 </li>
 <li>Afin d'organiser notre répertoire, déplacez le nouvellement créé et qui contient les fichiers décompressés dans le répetoire parent <code>TPLinux</code>. Supprimez l'archive `.zip` puis retournez dans votre <code>$HOME</code>
     
-<details><summary><code><span style="color: #EEEE22">Solution 7</span></code></summary>
+<details><summary><code><span style="color: #EEEE22">Solution 8</span></code></summary>
 
 <pre><code>mv data ..
 rm -i data.zip
@@ -588,7 +633,7 @@ cd
 
 <li>Parmi les fichiers téléchargés, il y a un fichier <code>pdf</code> mal nommé. Trouvez le, puis renommer le __notesLinux.pdf__ en le maintenant dans le même répertoire. Ouvrez ensuite le fichier <code>pdf</code>.
     
-<details><summary><code><span style="color: #EEEE22">Solution 8</span></code></summary>
+<details><summary><code><span style="color: #EEEE22">Solution 9</span></code></summary>
 
 <pre><code>find . -name '*.pdf'
 mv ./TPLinux/data/xxxlinxx.pdf ./TPLinux/data/notesLinux.pdf
@@ -613,7 +658,96 @@ ls -1 ~/TPLinux/data/*fasta| wc -l
 </code></pre>
 </details>
 </li>
+<li>Vous devriez avoir un fichier <code>unknown.fasta</code> dans la liste des fichiers téléchargés. Afficher les 5 premières lignes de ce fichier. Afficher ensuite tout le fichier. Que contient ce fichier à votre avis ?
+    
+<details><summary><code><span style="color: #EEEE22">Solution 2</span></code></summary>
+
+<pre><code># afficher les 5 première ligne
+head -n 5 ~/TPLinux/data/unknown.fasta
+# Utiliser, less, more ou cat pour afficher tout le fichier
+</code></pre>
+</details>
+</li>
+
+<li>Le dossier <code>data</code> contient certains fichiers contenant des séquences d'ARNs ribosomiques. Nous allons les concaténer en un seul fichier avec la commande <code>cat</code> et la redirection <code>></code>. Créer un nouveau fichier <code>all_ARNr.fasta</code> qui contient toutes les séquences d'ARNr. Si vous faites une erreur et écrasez un des fichiers de données, re-télécharger le.
+    
+<details><summary><code><span style="color: #EEEE22">Solution 3</span></code></summary>
+
+<pre><code>cd ~/TPLinux/data
+cat ARNr*.fasta > all_ARNr.fasta
+</code></pre>
+</details>
+</li>
+
+<li>Créer maintenant un nouveau dossier <code>bioinfo</code> dans <code>TPLinux</code>. Déplacez vous dans ce nouveau dossier et copiez y le fichier <code>hgTables.tsv</code> qui se trouve dans Puis <code>data</code>. Ce fichier contient une liste de variants génétiques, leurs positions dans le génome ainsi que d'autres informations.
+    
+<details><summary><code><span style="color: #EEEE22">Solution 4</span></code></summary>
+
+<pre><code>mkdir -p ~/TPLinux/bioinfo && cd ~/TPLinux/bioinfo
+cp ../data/hgTables.tsv .
+# hgTables.txt se retrouve dans data qui est dans le répertoire parent du répertoire courant.
+</code></pre>
+</details>
+</li>
+
+<li>Compter le nombre de ligne dans le fichier <code>hgTables.tsv</code>
+
+<details><summary><code><span style="color: #EEEE22">Solution 5</span></code></summary>
+
+<pre><code>wc -l hgTables.tsv
+</code></pre>
+</details>
+</li>
+
+<li>Vérifier l'entête du fichier. Comprenez vous les informations ? Si oui, combien de variants génétiques sont des *insertions* ?
+
+<details><summary><code><span style="color: #EEEE22">Solution 6</span></code></summary>
+
+<pre><code># La 7eme colonne "class" indique le type de variant
+# Nous avons juste à compter le nombre ligne avec "insertion" 
+grep 'insertion' hgTables.tsv | wc -l
+# Alternativement, l'option 'c' de grep permet de compter directement le nombre de ligne qui correspondent
+grep -c 'insertion' hgTables.tsv
+</code></pre>
+</details>
+</li>
+
+<li>Afficher uniquement le nom des chromosomes présents dans le fichier. Combien il y a t'il de chromosome distinct ? Aidez vous des commandes <code>sort</code> et <code>uniq</code>
+
+<details><summary><code><span style="color: #EEEE22">Solution 6</span></code></summary>
+
+<pre><code># La 1ere colonne "chrom" indique les chromosomes
+cut -f1 hgTables.tsv | sed -n '2,$p' | sort | uniq 
+# La première ligne du fichier est ignoré car il s'agit de l'entête
+# le '2,$p' dans sed permet de sélectionner et d'afficher de la ligne 2 à la fin.
+# Notez que vous pouvez utiliser tail et head intelligemment pour avoir le même resultat
+# enlever la dernière parie '| wc -l' pour avoir la liste unique
+</code></pre>
+</details>
+</li>
+
+
+<li>Afficher les variants qui ne sont pas présents sur le chromosome 3
+
+<details><summary><code><span style="color: #EEEE22">Solution 7</span></code></summary>
+
+<pre><code># On veut donc toutes les lignes qui ne contiennent pas 'chr3'
+grep -v 'chr3'  hgTables.tsv
+# Notez que cette commande conserve l'entête du fichier
+</code></pre>
+</details>
+</li>
 </ol>
 
+
+<li>Remplacer les brins marqués **+1** et **-1** respectivement par **+** et **-**, puis enregistrez le résultat. 
+
+<details><summary><code><span style="color: #EEEE22">Solution 6</span></code></summary>
+
+<pre><code>sed -i -e s/+1/+/g -e s/-1/-/g  hgTables.tsv
+</code></pre>
+</details>
+</li>
+</ol>
 
 
