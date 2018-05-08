@@ -318,7 +318,7 @@ Pour ce exercice (et les suivants), vous devez travailler dans un répertoire r�
 ```bash
 mkdir -p ~/TPLinux/test1
 ```
-</details>
+    </details>
 
 
 2.  Aller dans le répertoire `test1` 
@@ -328,21 +328,21 @@ mkdir -p ~/TPLinux/test1
 cd ~/TPLinux/test1
 ```
 Si vous vous trouvez déjà dans votre `$HOME`, vous pouvez utiliser `cd TPLinux/test1`. Essayer de taper juste une partie du chemin, puis appuyer sur la touche de tabulation pour voir l'autocomplètion qui vous sera proposée. 
-</details>
+    </details>
 
 3. Comment pouvez vous assurez que vous êtes dans le bon répertoire ? 
     <details><summary>Solution 3</summary>
 ```bash
 pwd
 ```
-</details>
+    </details>
 
 4. Vérifier le contenu du dossier courant (`test1`), il devrait être vide.
     <details><summary>Solution 4</summary>
 ```bash
 ls
 ```
-</details>
+    </details>
 
 5. Télécharger l'archive qui contient les données pour l'exercice sur `https://raw.githubusercontent.com/maclandrol/intro-linux/master/data.zip`. Essayer d'utiliser les lignes de commande pour le faire. Si vous n'êtes pas sûr de la commande complète, mais connaissez le programme à utiliser, essayer son help/manuel ou plus simplement `tldr commande`. Vérifier ensuite le contenu de votre répertoire actuel. 
     <details><summary>Solution 5</summary>
@@ -351,7 +351,7 @@ wget https://raw.githubusercontent.com/maclandrol/intro-linux/master/data.zip
 ls
 ```
 Dans ce cas, nous n'avons pas besoin de spécifier un fichier output. Vous remarquerez avec que `ls` retourne un nouveau fichier `data.zip`.
-</details>
+    </details>
 
 6. Décompressez l'archive. Sachant qu'il faudrait utiliser la commande `unzip`, trouver la ligne complète qu'il faut entrer.
     <details><summary>Solution 6</summary>
@@ -363,7 +363,7 @@ Il suffit donc de faire :
 ```bash
 unzip data.zip
 ```
-</details>
+    </details>
 
 7. Décompressez l'archive. Sachant qu'il faudrait utiliser la commande `unzip`, trouver la ligne complète qu'il faut entrer.
     <details><summary>Solution 6</summary>
@@ -375,7 +375,7 @@ Il suffit donc de faire :
 ```bash
 unzip data.zip
 ```
-</details>
+    </details>
 
 
 
