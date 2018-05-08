@@ -1,1 +1,4 @@
 theme: jekyll-theme-leap-day
+title: "Linux en Bioinfo"
+description: "Une introduction rapide à linux"
+show_downloads: "false"
