@@ -440,7 +440,12 @@ Vous pouvez modifier des fichiers sur place avec sed en utilisant l'option `-i` 
 sed -i [...] nomDuFichier
 ```
 
+-----------------------------------
+
 ## Pipe et redirection
+
+--------------------------------------
+
 
 ## Trucs et astuces à savoir
 
