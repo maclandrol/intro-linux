@@ -313,13 +313,13 @@ micro nom_fichier
 
 Pour ce exercice (et les suivants), vous devez travailler dans un répertoire réservé. 
 <ol>
-<li>Commencez par créer un dossier appelé <pre>TPLinux</pre> et à l'intérieur un autre répertoire <code>test1</code> dans votre <pre>$HOME</pre>
+<li>Commencez par créer un dossier appelé <code>TPLinux</code> et à l'intérieur un autre répertoire <code>test1</code> dans votre <code>$HOME</code>
 
 <details><summary><code><span style="color: #EEEE22">Solution 1</span></code></summary>
 
-<pre>
+<pre><code>
 mkdir -p ~/TPLinux/test1
-</pre>
+</pre></code>
 </details>
 </li>
 
@@ -328,9 +328,9 @@ mkdir -p ~/TPLinux/test1
 
 <code>test1</code> se trouve dans le répertoire <code>$HOME/TPLinux</code>. Pour y accéder il faut donc faire: 
 
-<pre>
+<pre><code>
 cd ~/TPLinux/test1
-</pre>
+</pre></code>
 
 Si vous vous trouvez déjà dans votre <code>$HOME</code>, vous pouvez utiliser <code>cd TPLinux/test1</code>. Essayer de taper juste une partie du chemin, puis appuyer sur la touche de tabulation pour voir l'autocomplètion qui vous sera proposée. 
 
@@ -341,9 +341,9 @@ Si vous vous trouvez déjà dans votre <code>$HOME</code>, vous pouvez utiliser 
 
 <details><summary><code><span style="color: #EEEE22">Solution 3</span></code></summary>
 
-<pre>
+<pre><code>
 pwd
-</pre>
+</pre></code>
 </details>
 </li>
 
@@ -351,9 +351,9 @@ pwd
 
 <details><summary><code><span style="color: #EEEE22">Solution 4</span></code></summary>
 
-<pre>
+<pre><code>
 ls
-</pre>
+</pre></code>
 </details>
 </li>
 
@@ -361,11 +361,10 @@ ls
 
 <details><summary><code><span style="color: #EEEE22">Solution 5</span></code></summary>
 
-<pre>
+<pre><code>
 wget https://raw.githubusercontent.com/maclandrol/intro-linux/master/data.zip
 ls
-</pre>
-
+</pre></code>
 Dans ce cas, nous n'avons pas besoin de spécifier un fichier output. Vous remarquerez avec que <code>ls</code> retourne un nouveau fichier <code>data.zip</code>.
 </details>
 </li>
@@ -376,15 +375,14 @@ Dans ce cas, nous n'avons pas besoin de spécifier un fichier output. Vous remar
 
 Pour avoir un exemple du fonctionnement de <code>unzip</code>
 
-<pre>
+<pre><code>
 tldr unzip
-</pre>
-
+</pre></code>
 Il suffit donc de faire :
 
-<pre>
+<pre><code>
 unzip data.zip
-</pre>
+</pre></code>
 </details>
 </li>
 </ol>
