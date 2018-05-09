@@ -13,7 +13,7 @@ Voici une liste de lien utiles pour débutants:
 
 ## Ouvrir un terminal
 
-Pour ouvrir un terminal, vous pouvez utiliser le raccourci clavier **Ctrl+Alt+t** très commun, ou utiliser la barre de recherche de votre distribution pour cherche _terminal_ ou _console_ parmi les applications disponibles. En général, le terminal n'est pas très difficile à trouver.
+Pour ouvrir un terminal, vous pouvez utiliser le raccourci clavier **Ctrl+Alt+t** très commun, ou utiliser la barre de recherche de votre distribution pour chercher _terminal_ ou _console_ parmi les applications disponibles. En général, le terminal n'est pas très difficile à trouver.
 
 
 ## Commandes linux
