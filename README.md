@@ -541,7 +541,7 @@ Pour cet exercice (et les suivants), vous devez travailler dans un répertoire r
 <ol class="exo">
 <li>Commencez par créer un dossier appelé <code>TPLinux</code> et à l'intérieur un autre répertoire <code>test1</code> dans votre <code>$HOME</code>
 
-<details><summary><code><span style="color: #EEEE22">Solution 1</span></code></summary>
+<details><summary><code><span style="color: #fcfc0a">Solution 1</span></code></summary>
 
 <pre><code>mkdir -p ~/TPLinux/test1
 </code></pre>
@@ -549,7 +549,7 @@ Pour cet exercice (et les suivants), vous devez travailler dans un répertoire r
 </li>
 
 <li>Aller dans le répertoire <code>test1</code>
-<details><summary><code><span style="color: #EEEE22">Solution 2</span></code></summary>
+<details><summary><code><span style="color: #fcfc0a">Solution 2</span></code></summary>
 
 <code>test1</code> se trouve dans le répertoire <code>$HOME/TPLinux</code>. Pour y accéder il faut donc faire: 
 
@@ -562,7 +562,7 @@ Si vous vous trouvez déjà dans votre <code>$HOME</code>, vous pouvez utiliser 
 
 <li>Comment pouvez vous assurez que vous êtes dans le bon répertoire ? 
 
-<details><summary><code><span style="color: #EEEE22">Solution 3</span></code></summary>
+<details><summary><code><span style="color: #fcfc0a">Solution 3</span></code></summary>
 
 <pre><code>pwd
 </code></pre>
@@ -571,7 +571,7 @@ Si vous vous trouvez déjà dans votre <code>$HOME</code>, vous pouvez utiliser 
 
 <li>Vérifier le contenu du dossier courant (<code>test1</code>), il devrait être vide.
 
-<details><summary><code><span style="color: #EEEE22">Solution 4</span></code></summary>
+<details><summary><code><span style="color: #fcfc0a">Solution 4</span></code></summary>
 
 <pre><code>ls
 </code></pre>
@@ -579,7 +579,7 @@ Si vous vous trouvez déjà dans votre <code>$HOME</code>, vous pouvez utiliser 
 </li>
 
 <li>Créer un nouveau fichier dans le dossier courant avec un éditeur. Inscrivez-y quelques mots. Sauvegarder puis quittez.
-<details><summary><code><span style="color: #EEEE22">Solution 5</span></code></summary>
+<details><summary><code><span style="color: #fcfc0a">Solution 5</span></code></summary>
 J'utilise micro dans ce cas, mais vous pouvez utiliser un éditeur graphique comme kate.
 <pre><code>
 micro mon_super_fichier.txt
@@ -593,7 +593,7 @@ micro mon_super_fichier.txt
 
 <li>Télécharger l'archive qui contient les données pour l'exercice sur <code>https://raw.githubusercontent.com/maclandrol/intro-linux/master/data.zip</code>. Essayer d'utiliser les lignes de commande pour le faire. Si vous n'êtes pas sûr de la commande complète, mais connaissez le programme à utiliser, essayer son help/manuel ou plus simplement <code>tldr commande</code>. Vérifier ensuite le contenu de votre répertoire actuel. 
 
-<details><summary><code><span style="color: #EEEE22">Solution 6</span></code></summary>
+<details><summary><code><span style="color: #fcfc0a">Solution 6</span></code></summary>
 
 <pre><code>wget https://raw.githubusercontent.com/maclandrol/intro-linux/master/data.zip
 ls
@@ -604,7 +604,7 @@ Dans ce cas, nous n'avons pas besoin de spécifier un fichier output. Vous remar
 
 <li>Décompressez l'archive. Sachant qu'il faudrait utiliser la commande <code>unzip</code>, trouvez la ligne complète qu'il faut entrer. Vérifier ensuite le contenu de l'archive
     
-<details><summary><code><span style="color: #EEEE22">Solution 7</span></code></summary>
+<details><summary><code><span style="color: #fcfc0a">Solution 7</span></code></summary>
 
 Pour avoir un exemple du fonctionnement de <code>unzip</code>
 
@@ -624,7 +624,7 @@ Si vous êtes dans un dossier qui ne contient pas <code>data.zip</code>, utilser
 </li>
 <li>Afin d'organiser notre répertoire, déplacez le nouvellement créé et qui contient les fichiers décompressés dans le répetoire parent <code>TPLinux</code>. Supprimez l'archive `.zip` puis retournez dans votre <code>$HOME</code>
     
-<details><summary><code><span style="color: #EEEE22">Solution 8</span></code></summary>
+<details><summary><code><span style="color: #fcfc0a">Solution 8</span></code></summary>
 
 <pre><code>mv data ..
 rm -i data.zip
@@ -635,7 +635,7 @@ cd
 
 <li>Parmi les fichiers téléchargés, il y a un fichier <code>pdf</code> mal nommé. Trouvez le, puis renommer le __notesLinux.pdf__ en le maintenant dans le même répertoire. Ouvrez ensuite le fichier <code>pdf</code>.
     
-<details><summary><code><span style="color: #EEEE22">Solution 9</span></code></summary>
+<details><summary><code><span style="color: #fcfc0a">Solution 9</span></code></summary>
 
 <pre><code>find . -name '*.pdf'
 mv ./TPLinux/data/xxxlinxx.pdf ./TPLinux/data/notesLinux.pdf
@@ -650,7 +650,7 @@ okular ./TPLinux/data/notesLinux.pdf
 <ol>
 <li>Parmi les fichiers téléchargés, se trouvent également des séquences avec une extension <code>fasta</code>. Combien de fichiers avec cette extension il y a t'il ?
     
-<details><summary><code><span style="color: #EEEE22">Solution 1</span></code></summary>
+<details><summary><code><span style="color: #fcfc0a">Solution 1</span></code></summary>
 
 La commande <code>find</code> retourne une ligne par fichier trouvé et <code>wc</code> permet de compter le nombre de lignes
 <pre><code>find ~/TPLinux -name '*.fasta' | wc -l
@@ -661,7 +661,7 @@ ls -1 ~/TPLinux/data/*fasta| wc -l
 </li>
 <li>Vous devriez avoir un fichier <code>unknown.fasta</code> dans la liste des fichiers téléchargés. Afficher les 5 premières lignes de ce fichier. Afficher ensuite tout le fichier. Que contient ce fichier à votre avis ?
     
-<details><summary><code><span style="color: #EEEE22">Solution 2</span></code></summary>
+<details><summary><code><span style="color: #fcfc0a">Solution 2</span></code></summary>
 
 Pour afficher les 5 première lignes : 
 <pre><code>
@@ -674,7 +674,7 @@ Utiliser, less, more ou cat pour afficher tout le fichier.
 
 <li>Le dossier <code>data</code> contient certains fichiers contenant des séquences d'ARNs ribosomiques. Nous allons les concaténer en un seul fichier avec la commande <code>cat</code> et la redirection <code>></code>. Créer un nouveau fichier <code>all_ARNr.fasta</code> qui contient toutes les séquences d'ARNr. Si vous faites une erreur et écrasez un des fichiers de données, re-télécharger le.
     
-<details><summary><code><span style="color: #EEEE22">Solution 3</span></code></summary>
+<details><summary><code><span style="color: #fcfc0a">Solution 3</span></code></summary>
 
 <pre><code>cd ~/TPLinux/data
 cat ARNr*.fasta > all_ARNr.fasta
@@ -684,7 +684,7 @@ cat ARNr*.fasta > all_ARNr.fasta
 
 <li>Créer maintenant un nouveau dossier <code>bioinfo</code> dans <code>TPLinux</code>. Déplacez vous dans ce nouveau dossier et copiez y le fichier <code>hgTables.tsv</code> qui se trouve dans Puis <code>data</code>. Ce fichier contient une liste de variants génétiques, leurs positions dans le génome ainsi que d'autres informations.
     
-<details><summary><code><span style="color: #EEEE22">Solution 4</span></code></summary>
+<details><summary><code><span style="color: #fcfc0a">Solution 4</span></code></summary>
 
 <pre><code>mkdir -p ~/TPLinux/bioinfo && cd ~/TPLinux/bioinfo
 cp ../data/hgTables.tsv .
@@ -696,16 +696,16 @@ cp ../data/hgTables.tsv .
 
 <li>Compter le nombre de ligne dans le fichier <code>hgTables.tsv</code>
 
-<details><summary><code><span style="color: #EEEE22">Solution 5</span></code></summary>
+<details><summary><code><span style="color: #fcfc0a">Solution 5</span></code></summary>
 
 <pre><code>wc -l hgTables.tsv
 </code></pre>
 </details>
 </li>
 
-<li>Vérifier l'entête du fichier. Comprenez vous les informations ? Si oui, combien de variants génétiques sont des *insertions* ?
+<li>Vérifier l'entête du fichier. Comprenez vous les informations ? Si oui, combien de variants génétiques sont des <em>insertions</em> ?
 
-<details><summary><code><span style="color: #EEEE22">Solution 6</span></code></summary>
+<details><summary><code><span style="color: #fcfc0a">Solution 6</span></code></summary>
 
 <pre><code>
 grep 'insertion' hgTables.tsv | wc -l
@@ -722,7 +722,7 @@ grep -c 'insertion' hgTables.tsv
 
 <li>Afficher uniquement le nom des chromosomes présents dans le fichier. Combien il y a t'il de chromosome distinct ? Aidez vous des commandes <code>sort</code> et <code>uniq</code>
 
-<details><summary><code><span style="color: #EEEE22">Solution 6</span></code></summary>
+<details><summary><code><span style="color: #fcfc0a">Solution 6</span></code></summary>
 
 <pre><code>cut -f1 hgTables.tsv | sed -n '2,$p' | sort | uniq 
 </code></pre>
@@ -739,7 +739,7 @@ Si vous enlever la dernière parie '| wc -l', la commande affichera la liste uni
 
 <li>Afficher les variants qui ne sont pas présents sur le chromosome 3
 
-<details><summary><code><span style="color: #EEEE22">Solution 7</span></code></summary>
+<details><summary><code><span style="color: #fcfc0a">Solution 7</span></code></summary>
 
 <pre><code>grep -v 'chr3'  hgTables.tsv
 </code></pre>
@@ -747,9 +747,9 @@ On veut donc toutes les lignes qui ne contiennent pas 'chr3'. Notez que cette co
 </details>
 </li>
 
-<li>Remplacer les brins marqués **+1** et **-1** respectivement par **+** et **-**, puis enregistrez le résultat. 
+<li>Remplacer les brins marqués <b>+1</b> et <b>-1</b> respectivement par <b>+</b> et <b>-</b>, puis enregistrez le résultat. 
 
-<details><summary><code><span style="color: #EEEE22">Solution 8</span></code></summary>
+<details><summary><code><span style="color: #fcfc0a">Solution 8</span></code></summary>
 
 <pre><code>sed -i -e s/+1/+/g -e s/-1/-/g  hgTables.tsv
 </code></pre>
